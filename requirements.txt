@@ -1,0 +1,15 @@
+numpy
+pandas
+fastapi[standard]
+sqlalchemy
+httpx
+python-dotenv
+scikit-learn
+matplotlib
+seaborn
+dill
+fastapi-users
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+uvicorn[standard]

@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Virtual Environment
+trip_env/
+venv/
+env/
+.env/
+ENV/
+
+# Environment variables — never commit secrets
+.env
+
+# Database — contains real user data
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ML artifacts — large binary files don't belong in git
+models/
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.pt
+*.pth
+artifact_entity/
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution
+*.mo
+*.pot
