@@ -1,13 +1,16 @@
 from sqlalchemy.orm import Session
 from backend.models import Preference
 from backend.schemas import PreferenceCreate
+import json
 
 
 def create_preference(db: Session, pref: PreferenceCreate):
+    activities = pref.preferred_activities
+    activities_str = json.dumps(activities) if activities is not None else None
     db_pref = Preference(
         user_id=pref.user_id,
         preferred_climate=pref.preferred_climate,
-        preferred_activities=pref.preferred_activities,
+        preferred_activities=activities_str,
         max_budget=pref.max_budget,
         travel_style=pref.travel_style
     )

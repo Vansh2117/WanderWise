@@ -23,7 +23,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         if user_id_str is None:
             raise credentials_exception
         user_id = int(user_id_str)
-    except JWTError:
+    except (JWTError, ValueError):
         raise credentials_exception
 
     user = CRUD.get_user_by_id(db, user_id)

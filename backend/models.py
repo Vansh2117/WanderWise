@@ -50,7 +50,7 @@ class Preference(Base):
 
     # This is where we store data for ML recommendations
     preferred_climate = Column(String, nullable=True)  # "cold / beach / mountains"
-    preferred_activities = Column(String, nullable=True) # comma-separated → "trekking,shopping"
+    preferred_activities = Column(String, nullable=True)  # stored as JSON string e.g. '["hiking","beach"]'
     max_budget = Column(Float, nullable=True)
     travel_style = Column(String, nullable=True)  # "adventure / luxury / chill"
 

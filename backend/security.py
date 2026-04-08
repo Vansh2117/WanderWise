@@ -1,10 +1,17 @@
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from jose import jwt
+from dotenv import load_dotenv
+import os
 
-SECRET_KEY = "supersecretkey123"  # Move to .env later also change the key in production
+load_dotenv()  # reads .env file into environment variables
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 24 hours — used as default fallback
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 1440))
+
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY is not set. Add it to your .env file.")
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -20,7 +27,6 @@ def verify_password(plain_password: str, hashed_password: str):
 def create_access_token(data: dict, expires_delta: timedelta = None):
     to_encode = data.copy()
 
-    # If caller passes a custom lifetime, use it. Otherwise use the 24hr default.
     if expires_delta:
         expire = datetime.utcnow() + expires_delta
     else:
