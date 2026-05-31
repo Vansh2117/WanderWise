@@ -14,3 +14,6 @@ python-jose[cryptography]
 python-multipart
 uvicorn[standard]
 python-dotenv
+pytest
+httpx
+pytest-asyncio

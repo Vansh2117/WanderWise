@@ -1,0 +1,9 @@
+personality_type,description,adventure_weight,culture_weight,nature_weight,relaxation_weight,food_social_weight,budget_sensitivity,crowd_preference,preferred_climate,avoid_types
+Adventurer,"Loves trekking, camping, extreme sports and physical challenges",10,3,7,2,4,low,low,cold/mountains,"Religious,Shopping"
+Culturalist,"Passionate about history, heritage, museums, temples and art",2,10,3,2,4,low,medium,any,"Beach,Amusement"
+Relaxer,"Prefers beaches, resorts, spas and slow-paced travel",1,3,6,10,5,high,low,warm/coastal,"Adventure,Religious"
+Foodie,"Driven by street food, local cuisine, markets and culinary experiences",2,4,2,3,10,medium,high,any,"Wildlife,Adventure"
+Socialite,"Enjoys nightlife, group activities, festivals and meeting people",4,5,3,5,10,medium,high,warm/urban,"Wildlife,Heritage"
+Nature Lover,"Drawn to wildlife, forests, mountains, rivers and natural landscapes",6,2,10,5,3,low,low,nature/any,"Shopping,Amusement"
+Photographer,"Seeks scenic viewpoints, golden hour spots, landscapes and unique visuals",4,5,8,6,4,low,low,scenic/any,"Shopping,Amusement"
+Budget Traveler,"Maximises experiences while minimising spend, prefers local and off-beat",5,6,6,4,7,high,low,any,"Luxury,Resort"
