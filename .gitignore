@@ -61,3 +61,6 @@ htmlcov/
 # Distribution
 *.mo
 *.pot
+
+implementation_plan.md
+walkthrough.md

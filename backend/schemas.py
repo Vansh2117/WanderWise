@@ -1,7 +1,7 @@
 import json
 
 from pydantic import BaseModel, EmailStr, Field, field_validator
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from datetime import date
 
 
@@ -95,3 +95,50 @@ class TripResponse(TripBase):
 
     class Config:
         from_attributes=True
+
+
+# RECOMMENDATION SCHEMAS
+class RecommendationRequest(BaseModel):
+    slider_scores: Optional[Dict[str, float]] = None
+    preferred_climate: Optional[str] = None
+    preferred_activities: Optional[List[str]] = None
+    travel_style: Optional[str] = None
+    travel_month: Optional[str] = None
+    max_budget_inr: Optional[float] = None
+    top_k: int = 10
+
+
+class GroupRecommendationRequest(BaseModel):
+    strategy: str = "weighted_average"  # options: weighted_average, least_miserable, nash_social_welfare
+    travel_month: Optional[str] = None
+    max_budget_inr: Optional[float] = None
+    top_k: int = 10
+
+
+class DestinationRecommendation(BaseModel):
+    destination_id: int
+    place_name: str
+    city: str
+    state: str
+    category: str
+    rating: float
+    entrance_fee_inr: float
+    match_score: float
+    preference_match_pct: Optional[float] = None
+    group_preference_score: Optional[float] = None
+    strategy_used: Optional[str] = None
+    member_satisfaction_scores: Optional[List[float]] = None
+    seasonal_score: float
+    explanation: str
+
+
+class PersonalityProfileMatch(BaseModel):
+    personality_type: str
+    description: str
+    match_percentage: float
+    preferred_climate: str
+
+
+class RecommendationResponse(BaseModel):
+    assigned_personalities: List[PersonalityProfileMatch]
+    recommendations: List[DestinationRecommendation]
